@@ -20,7 +20,7 @@ RUN pnpm run build
  
 FROM base
 COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/generated /app/generated
+COPY --from=build /app/src/generated /app/src/generated
 COPY --from=build /app/dist /app/dist
 EXPOSE 10000
 CMD [ "pnpm", "start" ]
